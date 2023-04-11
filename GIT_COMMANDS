@@ -1,0 +1,5 @@
+USEFUL GIT COMMANDS
+git add .
+git commit -m "Bugfix to allow user selected search engine"
+git push origin main
+
