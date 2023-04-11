@@ -1,4 +1,4 @@
-async function rewriteURL(requestDetails) {
+function rewriteURL(requestDetails) {
   if (
     requestDetails.originUrl === undefined &&
     requestDetails.type === "main_frame" &&
@@ -6,15 +6,13 @@ async function rewriteURL(requestDetails) {
   ) {
     let url = new URL(requestDetails.url);
     if (url.search === "") {
-      let searchEngines = await browser.search.get();
-      let defaultSearchEngine = searchEngines.find((engine) => engine.isDefault);
-      if (defaultSearchEngine) {
-        let searchURL = defaultSearchEngine.searchUrl + encodeURIComponent(url.href);
-        return { redirectUrl: searchURL };
-      }
+      let searchQuery = url.href;
+      browser.search.search({ query: searchQuery });
+      return { cancel: true };
     }
   }
 }
+
 
 browser.webRequest.onBeforeRequest.addListener(
   rewriteURL,
