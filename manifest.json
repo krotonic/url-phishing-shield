@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "URLPhishingShield",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Search directly typed URLs using the default search engine",
   "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "search"],
   "background": {
