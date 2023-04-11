@@ -1,4 +1,4 @@
-function rewriteURL(requestDetails) {
+async function rewriteURL(requestDetails) {
   if (
     requestDetails.originUrl === undefined &&
     requestDetails.type === "main_frame" &&
@@ -6,8 +6,12 @@ function rewriteURL(requestDetails) {
   ) {
     let url = new URL(requestDetails.url);
     if (url.search === "") {
-      let searchURL = "https://duckduckgo.com/?q=" + encodeURIComponent(url.href);
-      return { redirectUrl: searchURL };
+      let searchEngines = await browser.search.get();
+      let defaultSearchEngine = searchEngines.find((engine) => engine.isDefault);
+      if (defaultSearchEngine) {
+        let searchURL = defaultSearchEngine.searchUrl + encodeURIComponent(url.href);
+        return { redirectUrl: searchURL };
+      }
     }
   }
 }

@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "DirectURLtoDuckDuckGo",
+  "name": "URLPhishingShield",
   "version": "1.0",
-  "description": "Search directly typed URLs in DuckDuckGo",
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "description": "Search directly typed URLs using the default search engine",
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "search"],
   "background": {
     "scripts": ["background.js"]
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "directurltoduckduckgo@example.com",
+      "id": "urlphishingshield@example.com",
       "strict_min_version": "111.0"
     }
   }
