@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "DirectURLtoDuckDuckGo",
+  "version": "1.0",
+  "description": "Search directly typed URLs in DuckDuckGo",
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "directurltoduckduckgo@example.com",
+      "strict_min_version": "111.0"
+    }
+  }
+}
+
