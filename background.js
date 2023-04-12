@@ -13,7 +13,6 @@ function rewriteURL(requestDetails) {
   }
 }
 
-
 browser.webRequest.onBeforeRequest.addListener(
   rewriteURL,
   { urls: ["<all_urls>"], types: ["main_frame"] },
